@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="formularz logowania" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>e-Dziekanat</title>
+	<link th:href="@{/css/superuserpage.css}" rel="stylesheet" />
+	
+	<link th:href="@{/css/lists.css}" rel="stylesheet" />
+	
+</head>
+<body>
+	<div th:replace="template::sayWelcome"></div>
+
+	<h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
+	<br />
+	<h2>Lista nauczycieli</h2>
+	<br />
+	
+		<table border="1" cellpadding="5">
+			<tr><th>Id</th><th>Imię</th><th>Nazwisko</th><th>e-mail</th><th>Miasto</th><th>Telefon</th><th>Opcje</th></tr>
+			<tr th:each="teacher: ${teachers}">
+				<td><span th:text="${teacher.id}" /></td>
+				<td><span th:text="${teacher.name}" /></td>
+				<td><span th:text="${teacher.surname}" /></td>
+				<td><span th:text="${teacher.eMail}" /></td>
+				<td><span th:text="${teacher.city}" /></td>
+				<td><span th:text="${teacher.phone}" /></td>
+				<td>
+            		<a th:href="@{/removeTeacher/{id}(id=${teacher.id})}"><span>Usuń</span></a>
+      		  </td>
+			</tr>
+		</table>
+	
+	<br />
+	<div th:replace="template::footer"></div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>e-Dziekanat</title>
+	</head>
+	
+	<!--definuje sobie fragment footer, który bêdê móg³ póxniej wykorzystaæ w innym pliku html  -->
+	<h1 id="header" th:fragment="sayWelcome" style="text-align:center; margin-top:30px;">Witamy w serwisie e-Dziekanat</h1>
+	<h4 th:fragment="message" th:text="${message}" style="text-align:center; color: red;"></h4>
+	<p id="paragraph" th:fragment="footer" style="text-align:center; margin-top:130px;">Copyright &copy; e-Dziekanat</p>
+	
+
+</html>

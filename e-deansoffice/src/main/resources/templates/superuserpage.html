@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="formularz logowania" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>e-Dziekanat</title>
+	<link th:href="@{/css/superuserpage.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:replace="template::sayWelcome"></div>
+
+	<h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
+	<br />
+	<h2>Dostępne funkcje</h2>
+	<br />
+	<div id="container">
+		<div id="topRow">
+			<a href="employeesList"><div class="button">Pracownicy</div></a>
+			<a href="studentsList"><div class="button">Studenci</div></a>
+			<a href="fieldsOfStudyList"><div class="button">Kierunki studiów</div></a>
+		</div>
+
+		<div id="bottomRow">
+			<a href="addField"><div class="button">Dodaj kierunek</div></a>
+			<a href="addEmployee"><div class="button">Dodaj pracownika</div></a>
+			<a href="logout"><div class="button">Wyloguj</div></a>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+	<br />
+	<div th:replace="template::footer"></div>
+</body>
+</html>

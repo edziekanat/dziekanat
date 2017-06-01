@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="formularz logowania" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>e-Dziekanat</title>
+	
+	<link th:href="@{/css/login.css}" rel="stylesheet" />
+	
+</head>
+<body>
+	<div th:replace="template::sayWelcome"></div>
+
+	<h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
+	<br />
+	<h3>Dodawanie nowego kierunku studiów</h3>
+	<br />
+	<div id="container">
+		
+		<div id="form">
+		  <form action="createField" method="post">
+			<input type="text" name="name" placeholder="kierunek studiów"></input>
+			<br />
+			<input type="text" name="department" placeholder="wydział"></input>
+			<br />
+			<input type="text" name="level" placeholder="poziom kształcenia"></input>
+			<br />
+			<input type="text" name="profil" placeholder="profil kształcenia"></input>
+		  	<br />
+		  	<input type="text" name="formOfStudy" placeholder="forma studiów"></input>
+		  	<br />
+		  	<input type="text" name="speciality" placeholder="specjalność"></input>
+		  	<br />
+		  	<input type="text" name="numberOfSemesters" placeholder="liczba semestrów"></input>
+		  	<br />
+		  	<input type="text" name="ects" placeholder="liczba punktów ECTS"></input>
+		  	<br />
+		  	<input type="text" name="totalNumberOfHours" placeholder="łączna liczba godzin dydaktycznych"></input>
+		  	<br />
+			<input type="submit" value="Dodaj"></input>
+		  </form>
+		</div>
+	</div>	
+	<br />
+		<h4 th:replace="template::message"></h4>
+	<br />
+	<div th:replace="template::footer"></div>
+</body>
+</html>
