@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.edu.agh.edeansoffice.models.FieldsOfStudy;
-import pl.edu.agh.edeansoffice.models.dao.FieldsOfStudyDao;
+import pl.edu.agh.edeansoffice.persistance.FieldsOfStudyDao;
 
 
 @Controller

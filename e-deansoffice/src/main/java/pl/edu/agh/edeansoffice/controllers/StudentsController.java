@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.edu.agh.edeansoffice.models.Students;
-import pl.edu.agh.edeansoffice.models.dao.StudentsDao;
+import pl.edu.agh.edeansoffice.persistance.StudentsDao;
 
 @Controller
 public class StudentsController {
