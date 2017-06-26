@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.edu.agh.edeansoffice.models.Employees;
 import pl.edu.agh.edeansoffice.models.Students;
 import pl.edu.agh.edeansoffice.models.Teachers;
-import pl.edu.agh.edeansoffice.models.dao.EmployeesDao;
-import pl.edu.agh.edeansoffice.models.dao.StudentsDao;
-import pl.edu.agh.edeansoffice.models.dao.TeachersDao;
+import pl.edu.agh.edeansoffice.persistance.EmployeesDao;
+import pl.edu.agh.edeansoffice.persistance.StudentsDao;
+import pl.edu.agh.edeansoffice.persistance.TeachersDao;
 
 @Controller
 public class LoginController {
