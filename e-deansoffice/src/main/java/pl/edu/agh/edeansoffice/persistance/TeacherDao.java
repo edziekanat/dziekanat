@@ -7,13 +7,13 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import pl.edu.agh.edeansoffice.models.Teachers;
+import pl.edu.agh.edeansoffice.models.Teacher;
 
 @Transactional
 @Repository
-public interface TeachersDao extends CrudRepository<Teachers, Integer> {
+public interface TeacherDao extends CrudRepository<Teacher, Integer> {
 	
-	public List<Teachers> findAll();
+	public List<Teacher> findAll();
 	
-	public Teachers findById(Integer id);
+	public Teacher findById(Integer id);
 }
