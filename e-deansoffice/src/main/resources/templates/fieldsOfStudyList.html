@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="superuserpage" >
+
 <head>
 	<meta charset="utf-8" />
 	<meta name="description" content="formularz logowania" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>e-Dziekanat</title>
-	<link th:href="@{/css/superuserpage.css}" rel="stylesheet" />
 	
-	<link th:href="@{/css/lists.css}" rel="stylesheet" />
 	
 </head>
 <body>
-	<div th:replace="template::sayWelcome"></div>
+<div layout:fragment="content">
 
-	<h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
-	<br />
 	<h2>Lista kierunków studiów</h2>
 	<br />
 	
-		<table border="1" cellpadding="5">
+		<table border="1" cellpadding="4" style="width:95%; font-size: 1vw;">
 			<tr><th>Id</th><th>Kierunek studiów</th><th>Wydział</th><th>Poziom kształcenia</th><th>Profil studiów</th><th>Forma studiów</th><th>Specjalność</th><th>Liczba semestrów</th><th>Liczba punktów ECTS</th><th>Łączna liczba godzin dydaktycznych</th><th>Opcje</th></tr>
 			<tr th:each="fieldOfStudy: ${fieldsOfStudy}">
 				<td><span th:text="${fieldOfStudy.id}" /></td>
@@ -38,6 +35,6 @@
 		</table>
 	
 	<br />
-	<div th:replace="template::footer"></div>
+</div>
 </body>
 </html>

@@ -34,7 +34,7 @@ h2
 .button
 {
 	width: 180px;
-	height: 100px;
+	height: 50px;
 	background-color: #4CAF50;
 	float: left;
 	margin: 5px;
@@ -47,3 +47,4 @@ h2
 {
 	background-color: #45a049;
 }
+

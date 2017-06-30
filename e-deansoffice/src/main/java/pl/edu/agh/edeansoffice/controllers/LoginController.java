@@ -43,6 +43,7 @@ public class LoginController {
 		//superuser
 		if(login.equals("superuser") && pass.equals("letmein")) {
 			session.setAttribute("userLogin", "admin " + login);
+			session.setAttribute("typeOfUser", "admin");
         	return "redirect:/welcome";
         	
 		} else {
@@ -56,6 +57,7 @@ public class LoginController {
         	for (Student student : students) {
 				if(student.getStudentsBookNumber().equals(login) && student.getPassword().equals(pass)) {
 					session.setAttribute("userLogin", "student " + student.getName() + " " + student.getSurname());
+					session.setAttribute("typeOfUser", "student");
 					return "redirect:/student";
 				} else {
 					logged = false;
@@ -70,6 +72,7 @@ public class LoginController {
         	for (Employee employee : employees) {
 				if(employee.getName().equals(login) && employee.getPassword().equals(pass)) {
 					session.setAttribute("userLogin", "pracownik " + employee.getName() + " " + employee.getSurname());
+					session.setAttribute("typeOfUser", "pracownik");
 					return "redirect:/employee";
 				} else {
 					logged = false;
@@ -85,6 +88,7 @@ public class LoginController {
         	for (Teacher teacher : teachers) {
 				if(teacher.getName().equals(login) && teacher.getPassword().equals(pass)) {
 					session.setAttribute("userLogin", "nauczyciel " + teacher.getName() + " " + teacher.getSurname());
+					session.setAttribute("typeOfUser", "nauczyciel");
 					return "redirect:/teacher";
 				} else {
 					logged = false;
