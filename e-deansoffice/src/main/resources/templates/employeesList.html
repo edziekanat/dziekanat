@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="superuserpage">
 <head>
 	<meta charset="utf-8" />
 	<meta name="description" content="formularz logowania" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>e-Dziekanat</title>
-	<link th:href="@{/css/superuserpage.css}" rel="stylesheet" />
 	
-	<link th:href="@{/css/lists.css}" rel="stylesheet" />
+	<!-- <link th:href="@{/css/superuserpage.css}" rel="stylesheet" /> -->
+		<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/superuserpage2.css}"   />
+	
+	<!-- <link th:href="@{/css/lists.css}" rel="stylesheet" /> -->
+		<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/lists2.css}"   />
 	
 </head>
 <body>
 	<div th:replace="template::sayWelcome"></div>
 
-	<h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
-	<br />
+	<!-- <h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
+	<br /> -->
+	
+<div layout:fragment="content">
 	<h2>Lista pracowników</h2>
 	<br />
 	
-		<table border="1" cellpadding="5">
+		<table border="1" cellpadding="5" style="width:95%; font-size: 1vw;">
 			<tr><th>Id</th><th>Imię</th><th>Nazwisko</th><th>Miasto</th><th>e-mail</th><th>Telefon</th><th>Opcje</th></tr>
 			<tr th:each="employee: ${employees}">
 				<td><span th:text="${employee.id}" /></td>
@@ -33,8 +38,6 @@
 			</tr>
 		</table>
 	<br />
-		<h4 th:replace="template::message"></h4>
-	<br />
-	<div th:replace="template::footer"></div>
+</div>
 </body>
 </html>

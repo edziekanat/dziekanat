@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>e-Dziekanat</title>
-	</head>
-	
-	<!--definuje sobie fragment footer, który bêdê móg³ póxniej wykorzystaæ w innym pliku html  -->
-	<h1 id="header" th:fragment="sayWelcome" style="text-align:center; margin-top:30px;">Witamy w serwisie e-Dziekanat</h1>
-	<h4 th:fragment="message" th:text="${message}" style="text-align:center; color: red;"></h4>
-	<p id="paragraph" th:fragment="footer" style="text-align:center; margin-top:130px;">Copyright &copy; e-Dziekanat</p>
-	
+<head>
+<title>e-Dziekanat</title>
+</head>
 
+<body bgcolor="cccccc">
+	<div align="center">
+
+		<!--definuje sobie fragment footer, który bêdê móg³ póxniej wykorzystaæ w innym pliku html  -->
+
+
+		<table style="width: 80%; height: 100%; background-color: #dddddd; BORDER: RGB(0, 0, 0) 2px solid; border-collapse: collapse; margin: 20px">
+			<tr style="margin: 8px; BORDER: RGB(0, 0, 0) 2px solid; ">
+				<td align='center'>
+					<h1 id="header" th:fragment="sayWelcome"
+						style="text-align: center; margin-top: 30px;">Witamy w serwisie e-Dziekanat</h1>
+				</td>
+			</tr>
+
+			<tr style="margin: 8px; BORDER: RGB(0, 0, 0) 2px solid; padding: 30px;">
+				<td align='center' style="padding: 20px;">
+					
+					<h4 th:fragment="message" th:text="${message}" style="text-align:center; color: red;"></h4>
+					
+					<div id="the-content" layout:fragment="content">Static content - never visible</div>
+
+				</td>
+			</tr>
+			<tr	style="margin: 8px; BORDER: RGB(0, 0, 0) 2px solid; ">
+				<td align='center'>
+					<h3 style="text-align: right; font-family:arial;  margin: 20px;">Grupa 4</h3>
+				</td>
+			</tr>
+		</table>
+
+		<!-- <p id="paragraph" th:fragment="footer"
+			style="text-align: center; margin-top: 0px;">Copyright
+			&copy;e-Dziekanat</p> -->
+	</div>
+</body>
 </html>

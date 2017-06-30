@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="superuserpage">
 <head>
 	<meta charset="utf-8" />
 	<meta name="description" content="formularz logowania" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>e-Dziekanat</title>
 	
-	<link th:href="@{/css/login.css}" rel="stylesheet" />
+	<!-- <link th:href="@{/css/login.css}" rel="stylesheet" /> -->
+	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/login2.css}" />
+	
 	
 	
 </head>
 <body>
-	<div th:replace="template::sayWelcome"></div>
+	<!-- <div th:replace="template::sayWelcome"></div> -->
 
-	<h3 id="title">Zalogowany jako: <span th:text="${session.userLogin}" style="color:red;"></span></h3>
+<div layout:fragment="content">
+
 	<br />
 	<h3>Dodawanie nowego pracownika</h3>
 	<br />
 	<div id="container">
-		
 		<div id="form">
 		  <form action="createEmployee" method="post">
 			<input type="text" name="name" placeholder="imię"></input>
@@ -33,9 +35,9 @@
 		  </form>
 		</div>
 	</div>	
-	<br />
-		<h4 th:replace="template::message"></h4>
-	<br />
-	<div id="footer" th:replace="template::footer"></div>
+
+</div>
+
+
 </body>
 </html>

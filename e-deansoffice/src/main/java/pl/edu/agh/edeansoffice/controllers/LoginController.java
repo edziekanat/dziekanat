@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pl.edu.agh.edeansoffice.models.Employees;
-import pl.edu.agh.edeansoffice.models.Students;
-import pl.edu.agh.edeansoffice.models.Teachers;
-import pl.edu.agh.edeansoffice.persistance.EmployeesDao;
-import pl.edu.agh.edeansoffice.persistance.StudentsDao;
-import pl.edu.agh.edeansoffice.persistance.TeachersDao;
+import pl.edu.agh.edeansoffice.models.Employee;
+import pl.edu.agh.edeansoffice.models.Student;
+import pl.edu.agh.edeansoffice.models.Teacher;
+import pl.edu.agh.edeansoffice.persistance.EmployeeDao;
+import pl.edu.agh.edeansoffice.persistance.StudentDao;
+import pl.edu.agh.edeansoffice.persistance.TeacherDao;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	private StudentsDao studentsDao;
+	private StudentDao studentsDao;
 	@Autowired
-	private EmployeesDao employeesDao;
+	private EmployeeDao employeesDao;
 	@Autowired
-	private TeachersDao teachersDao;
+	private TeacherDao teachersDao;
 	
 	@RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
 	public String displayWelcomePage() {
@@ -43,6 +43,7 @@ public class LoginController {
 		//superuser
 		if(login.equals("superuser") && pass.equals("letmein")) {
 			session.setAttribute("userLogin", "admin " + login);
+			session.setAttribute("typeOfUser", "admin");
         	return "redirect:/welcome";
         	
 		} else {
@@ -51,11 +52,12 @@ public class LoginController {
 		//student
         if(logged == false) {
         	
-        	List<Students> students = studentsDao.findAll();
+        	List<Student> students = studentsDao.findAll();
         	
-        	for (Students student : students) {
+        	for (Student student : students) {
 				if(student.getStudentsBookNumber().equals(login) && student.getPassword().equals(pass)) {
 					session.setAttribute("userLogin", "student " + student.getName() + " " + student.getSurname());
+					session.setAttribute("typeOfUser", "student");
 					return "redirect:/student";
 				} else {
 					logged = false;
@@ -65,11 +67,12 @@ public class LoginController {
 		//pani grazynka z dziekanatu
         if(logged == false) {
         	
-        	List<Employees> employees = employeesDao.findAll();
+        	List<Employee> employees = employeesDao.findAll();
         	
-        	for (Employees employee : employees) {
+        	for (Employee employee : employees) {
 				if(employee.getName().equals(login) && employee.getPassword().equals(pass)) {
 					session.setAttribute("userLogin", "pracownik " + employee.getName() + " " + employee.getSurname());
+					session.setAttribute("typeOfUser", "pracownik");
 					return "redirect:/employee";
 				} else {
 					logged = false;
@@ -80,11 +83,12 @@ public class LoginController {
       //nauczyciel
         if(logged == false) {
         	
-        	List<Teachers> teachers = teachersDao.findAll();
+        	List<Teacher> teachers = teachersDao.findAll();
         	
-        	for (Teachers teacher : teachers) {
+        	for (Teacher teacher : teachers) {
 				if(teacher.getName().equals(login) && teacher.getPassword().equals(pass)) {
 					session.setAttribute("userLogin", "nauczyciel " + teacher.getName() + " " + teacher.getSurname());
+					session.setAttribute("typeOfUser", "nauczyciel");
 					return "redirect:/teacher";
 				} else {
 					logged = false;

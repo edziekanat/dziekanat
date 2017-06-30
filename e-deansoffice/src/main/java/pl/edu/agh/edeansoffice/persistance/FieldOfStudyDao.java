@@ -7,14 +7,14 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import pl.edu.agh.edeansoffice.models.FieldsOfStudy;
+import pl.edu.agh.edeansoffice.models.FieldOfStudy;
 
 @Transactional
 @Repository
-public interface FieldsOfStudyDao extends CrudRepository<FieldsOfStudy, Integer> {
+public interface FieldOfStudyDao extends CrudRepository<FieldOfStudy, Integer> {
 	
-	public List<FieldsOfStudy> findAll();
+	public List<FieldOfStudy> findAll();
 	
-	public FieldsOfStudy findById(Integer id);
+	public FieldOfStudy findById(Integer id);
 
 }
