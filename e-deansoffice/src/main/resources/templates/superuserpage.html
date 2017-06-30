@@ -33,7 +33,7 @@
 							<span th:text="${session.userLogin}" style="color: red;"></span>
 							</h4>
 						
-						<div th:if="${session.typeOfUser == 'admin'}" layout:fragment="menu" id="contatiner">
+						<div th:if="${session.typeOfUser == 'admin'}" layout:fragment="menu" id="containerMenu">
 							<a href="employeesList"><div class="button">Pracownicy</div></a>
 							<a href="studentsList"><div class="button">Studenci</div></a>
 							<a href="fieldsOfStudyList"><div class="button">Kierunki studiów</div></a>
@@ -43,7 +43,7 @@
 							<div style="clear: both"></div>
 						</div>
 						
-						<div th:if="${session.typeOfUser == 'pracownik'}" id="container">
+						<div th:if="${session.typeOfUser == 'pracownik'}" id="containerMenu">
 							<a href="fieldsOfStudyList"><div class="button">Kierunki studiów</div></a>
 							<a href="teachersList"><div class="button">Nauczyciele</div></a>
 							<a href="studentsList"><div class="button">Studenci</div></a>
@@ -54,7 +54,7 @@
 							<div style="clear: both"></div>
 						</div>
 						
-						<div th:if="${session.typeOfUser == 'student'}" id="container">
+						<div th:if="${session.typeOfUser == 'student'}" id="containerMenu">
 							<a href=""><div class="button">Harmonogram zajęć</div></a>
 							<a href=""><div class="button">Oceny</div></a>
 							<a href=""><div class="button">Obecność</div></a>
@@ -63,7 +63,7 @@
 							<a href="logout"><div class="button2">Wyloguj</div></a>
 						</div>
 						
-						<div th:if="${session.typeOfUser == 'nauczyciel'}" id="container">
+						<div th:if="${session.typeOfUser == 'nauczyciel'}" id="containerMenu">
 							<a href=""><div class="button">Harmonogram zajęć</div></a>
 							<a href=""><div class="button">Moje przedmioty</div></a>
 							<a href=""><div class="button">Oceny</div></a>
