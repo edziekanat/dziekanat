@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="superuserpage">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="formularz logowania" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>e-Dziekanat</title>
+
+		
+		<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/login2.css}"   />
+		
+</head>
+<body>
+<div layout:fragment="content">
+	<h4 th:replace="template::message"></h4>
+	<h2>Wygeneruj raport</h2>
+	<br />
+		<h4>Wybierz typ raportu</h4>
+			
+		
+<!-- 	<div id="form" action="createReport" method="post" style="width:33%;">
+			
+			<select name="typeOfReport">
+			  <option value="listOfStudents">Lista Studentów</option>
+			  <option value="listOfWorkers">Lista Pracowników</option>
+			</select>
+			
+			<input type="submit" value="Utwórz"></input>
+		</div> -->
+		
+		<div id="form" style="width:33%;">
+		  <form action="createReport" method="get" >
+			
+			<select name="typeOfReport">
+			  <option value="listOfStudents">Lista Studentów</option>
+			  <option value="listOfWorkers">Lista Pracowników</option>
+			</select>
+		  
+			<input type="submit" value="Utwórz"></input>
+		  </form>
+		</div>
+		
+</div>
+
+</body>
+</html>
