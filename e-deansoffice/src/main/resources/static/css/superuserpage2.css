@@ -12,6 +12,14 @@ h2
 {
 	width: 100%;
 	text-align: center;
+	
+}
+
+#containerMenu
+{
+	width: 200px;
+  	margin: 0 auto;
+	
 }
 
 #topRow

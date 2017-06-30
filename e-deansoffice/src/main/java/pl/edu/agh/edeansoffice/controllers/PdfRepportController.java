@@ -35,7 +35,7 @@ public class PdfRepportController {
 	@RequestMapping(value = "/reports")
 	public String displayEmployeesList(Model model, HttpSession session) {
 
-		model.addAttribute("message", "Test");
+		/*model.addAttribute("message", "Test");*/
 		
 		if (session.getAttribute("userLogin") == null) {
     		return "redirect:/login";
@@ -57,15 +57,6 @@ public class PdfRepportController {
 			bis = GeneratePdfReport.employeesReport(employees);
 		}
 		
-/*		List<Student> students = (List<Student>) studentsDao.findAll();
-		
-		if (typeOfReport == "listOfStudents"){
-			model.addAttribute("message", "Test222");
-		}
-				
-		ByteArrayInputStream bis = GeneratePdfReport.studentsReport(students);*/
-		
-		
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Disposition", "inline; filename=employeesreport.pdf");
 
@@ -73,18 +64,4 @@ public class PdfRepportController {
 				.body(new InputStreamResource(bis));
 
 	}
-	
-/*	@RequestMapping(value = "/createReport", method = RequestMethod.GET)
-	public String displaymessage(Model model, @RequestParam(value="typeOfReport") String typeOfReport) {
-		
-
-		if (typeOfReport.equals("listOfStudents")){
-			model.addAttribute("message", typeOfReport);
-		} else if(typeOfReport.equals("listOfWorkers")){
-			model.addAttribute("message", typeOfReport);
-		}
-		
-		return "reports";
-	}*/
-
 }
